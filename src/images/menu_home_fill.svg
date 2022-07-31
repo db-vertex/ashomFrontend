@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65">
+  <g id="Group_1962" data-name="Group 1962" transform="translate(-508 -26)">
+    <g id="Group_1738" data-name="Group 1738" transform="translate(44 -16)">
+      <g id="Group_1742" data-name="Group 1742" transform="translate(12 5)">
+        <g id="Group_1741" data-name="Group 1741" transform="translate(0 4)">
+          <g id="Group_1740" data-name="Group 1740" transform="translate(452 33)">
+            <g id="Group_1739" data-name="Group 1739">
+              <circle id="Ellipse_63" data-name="Ellipse 63" cx="32.5" cy="32.5" r="32.5" fill="#72c4f1"/>
+            </g>
+          </g>
+        </g>
+        <g id="Group_1737" data-name="Group 1737" transform="translate(-98.997 9.732)">
+          <path id="Icon_awesome-home" data-name="Icon awesome-home" d="M17.032,10.994,5.832,22.414V34.74a1.106,1.106,0,0,0,.972,1.2l6.808-.022a1.108,1.108,0,0,0,.967-1.2v-7.2a1.106,1.106,0,0,1,.972-1.2h3.888a1.106,1.106,0,0,1,.972,1.2v7.193a1.363,1.363,0,0,0,.284.853.889.889,0,0,0,.688.354l6.805.023a1.106,1.106,0,0,0,.972-1.2V22.406l-11.2-11.412A.633.633,0,0,0,17.032,10.994Zm17.692,7.762-5.079-5.183V3.156a.83.83,0,0,0-.729-.9h-3.4a.83.83,0,0,0-.729.9V8.617l-5.439-5.54a2.5,2.5,0,0,0-3.706,0L.264,18.756a1.056,1.056,0,0,0-.1,1.271l1.549,2.332a.7.7,0,0,0,.493.325.639.639,0,0,0,.534-.2L17.032,7.91a.633.633,0,0,1,.929,0l14.29,14.571a.638.638,0,0,0,1.027-.12l1.549-2.332a1.056,1.056,0,0,0,.162-.663.979.979,0,0,0-.265-.61Z" transform="translate(566.001 40.668)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+web panel
+https://3.110.127.202:8090
+-u : admin
+-p : 1234567
+
+https://3.110.127.202:7080
+-u : admin
+-p : C7H3tntx4g82Ednq
+
+https://3.110.216.38:8090/rainloop/?admin
+-u : admin
+-p : ubD1ttrxexXnx8
+
+PHPMYADMIN
+https://3.110.216.38:8090
+-u : ashom_admin
+-p : admin@123
+
+
+
+
