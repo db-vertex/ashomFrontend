@@ -22,7 +22,9 @@ const Newsitem = (props) => {
         e.stopPropagation();
         const token = getUserToken();
         if(!token){
-            navigate('/login');
+            navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }});
         }
         else{
             dispatch(setnewssharedata({active:true, title : description, link : url_link, image : image}));

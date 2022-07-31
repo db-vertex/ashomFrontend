@@ -58,7 +58,9 @@ const ForumNewsModal = (props) => {
     const navigateToLogin = () => {
         if(!token){
             props.onHide();
-            navigate('/login');
+            navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }});
         }
     }
 

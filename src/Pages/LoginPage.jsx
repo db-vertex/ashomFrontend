@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Alert from '@mui/material/Alert';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
@@ -13,9 +13,9 @@ import {setheadermenuData} from '../reducers/HeaderMenuReducer';
 import { GAEvenet } from '../API/GoogleAnalytics';
 
 const Loginpage = (props) => {
-    
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const location = useLocation();
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     const [email_err, setemail_err] = useState('');
@@ -23,12 +23,15 @@ const Loginpage = (props) => {
     const [errorMessage, seterrorMessage] = useState('');
     const [successMessage, setsuccessMessage] = useState('');
     const [RememberMe, setRememberMe] = useState(false);
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } }  
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } } ;
+    const [redirectUrl, setredirectUrl] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(setheadermenuData({currentpath:'/signup', headerfootershow:false}));
         GAEvenet();
+        if(location.state)
+        setredirectUrl(location.state.redirect_url);
         let rememberMe_email = localStorage.getItem('rememberme_email');
         let rememberMe_password = localStorage.getItem('rememberme_password');
         if(rememberMe_email)
@@ -100,7 +103,10 @@ const Loginpage = (props) => {
               }
               saveUserToken(response.data.token, RememberMe);
               props.setIsUserLogin(true);
-            //   window.location.reload();
+              console.log('redctUrl : ', redirectUrl);
+              if(redirectUrl)
+              navigate(redirectUrl);
+              else
               navigate('/home');
             })
             .catch(function (error) {
@@ -151,6 +157,10 @@ const Loginpage = (props) => {
                     setsuccessMessage('Yeh ! Google Login Succeess');
                     saveUserToken( response.googleId, RememberMe);
                     props.setIsUserLogin(true);
+                    console.log('redctUrl : ', redirectUrl);
+                    if(redirectUrl)
+                    navigate(redirectUrl);
+                    else
                     navigate('/home');
                     
                 }
@@ -194,6 +204,9 @@ const Loginpage = (props) => {
                                 setsuccessMessage('');  
                                 if(meta.status){
                                      saveUserToken(profile.id);
+                                     if(redirectUrl)
+                                        navigate(redirectUrl);
+                                     else
                                      navigate('/home');
                                 }
                                 else{

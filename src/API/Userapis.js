@@ -3,7 +3,7 @@ import { getUserToken } from './LocalStore';
 
 const token = ()=> getUserToken();
 // const base_url = window.location.origin+'/';
-const base_url = 'https://ashom.app/';
+const base_url = 'https://clone.ashom.app/';
 let source = axios.CancelToken.source();
 
 function timeSince(date) {

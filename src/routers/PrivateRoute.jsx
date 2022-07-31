@@ -5,7 +5,9 @@ import { getUserToken } from '../API/LocalStore';
 const PrivateRoute = ({children }) => {
   const token = getUserToken();
   if (!token) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" state={{
+          redirect_url: window.location.pathname
+      }} replace />;
   }
 
   return <Outlet/>;

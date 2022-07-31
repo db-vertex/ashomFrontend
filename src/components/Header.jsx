@@ -198,7 +198,9 @@ const Header = (props) => {
                                 aria-controls={open ? 'account-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined} />
-                      </div> : <><Button onClick={()=>navigate('/login')}>Login</Button><Button onClick={()=>navigate('/singup')}>Sign Up</Button></> }
+                      </div> : <><Button onClick={()=>navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }})}>Login</Button><Button onClick={()=>navigate('/singup')}>Sign Up</Button></> }
                     </nav>
                   {IsUserLogin ? <Headermenu profileImg={profileImg} username={username} anchorEl={anchorEl} open={open} handleClose={handleClose} setIsUserLogin={setIsUserLogin}/> : <></>}
               </div>

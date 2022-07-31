@@ -26,7 +26,9 @@ const Forumpost = (props) => {
     const handleLike = () =>{
         const token = getUserToken();
         if(!token)
-        navigate('/login');
+        navigate('/login', {state: {
+            redirect_url: window.location.pathname
+        }});
         else{
             if(Liked==false){
                 setDisliked(false);
@@ -48,7 +50,9 @@ const Forumpost = (props) => {
     const handleDislike = () =>{
         const token = getUserToken();
         if(!token){
-            navigate('/login');
+            navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }});
         }
         else{
             if(Disliked==false){
@@ -71,7 +75,9 @@ const Forumpost = (props) => {
     const handleShare = () =>{
         const token = getUserToken();
         if(!token){
-            navigate('/login');
+            navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }});
         }
         else{
             dispatch(showsharemodal({isShow:true, shareUrl:share_url_txt, link:url_link }));
@@ -86,7 +92,9 @@ const Forumpost = (props) => {
     const handleComment = () =>{
         const token = getUserToken();
         if(!token){
-            navigate('/login');
+            navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }});
         }
         else
         setForumDetailId(forumalldata);

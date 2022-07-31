@@ -58,7 +58,9 @@ const Companydetails = (props) => {
             }
         }
         else
-        navigate('/login');
+        navigate('/login', {state: {
+            redirect_url: window.location.pathname
+        }});
     } 
     
     
@@ -365,7 +367,9 @@ const Companydetails = (props) => {
                             return (
                                 <Grid item xs={6} md={3} key={index}>
                                  <CardActionArea > 
-                                 <Paper className='document_type_card p-1' onClick={()=>(!token?navigate('/login'):documentExists(value.document_name)?GoToDocumentView(getdocumentLink(value.document_name), value.document_name):false)}>
+                                 <Paper className='document_type_card p-1' onClick={()=>(!token?navigate('/login', {state: {
+                redirect_url: window.location.pathname
+            }}):documentExists(value.document_name)?GoToDocumentView(getdocumentLink(value.document_name), value.document_name):false)}>
                                   <div className='documentTypeCa4rdImage'>
                                     <img  src={value.document_image} alt="Cash Flow" srcSet={value.document_image} />
                                    </div>   
