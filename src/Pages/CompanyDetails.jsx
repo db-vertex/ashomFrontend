@@ -17,7 +17,6 @@ const Companydetails = (props) => {
     let params = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const confirm = useConfirm()
     let company_id = params.id;
     const [CompanyYears, setCompanyYears] = useState([]);
     const [SelectedYear, setSelectedYear] = useState('');
@@ -39,6 +38,7 @@ const Companydetails = (props) => {
     const [Delisted_date, setDelisted_date] = useState("");
     const [Last_report, setLast_report] = useState('');
     const [MaxVisits, setMaxVisits] = useState(0);
+    const token = getUserToken();
     
     const GoToDocumentView = (ref_url, doc_name) =>{
         const token = getUserToken();
@@ -365,14 +365,14 @@ const Companydetails = (props) => {
                             return (
                                 <Grid item xs={6} md={3} key={index}>
                                  <CardActionArea > 
-                                 <Paper className='document_type_card p-1' onClick={()=>documentExists(value.document_name)?GoToDocumentView(getdocumentLink(value.document_name), value.document_name):false}>
+                                 <Paper className='document_type_card p-1' onClick={()=>(!token?navigate('/login'):documentExists(value.document_name)?GoToDocumentView(getdocumentLink(value.document_name), value.document_name):false)}>
                                   <div className='documentTypeCa4rdImage'>
                                     <img  src={value.document_image} alt="Cash Flow" srcSet={value.document_image} />
                                    </div>   
                                    <div  className='document_type_card_title'>
                                       {value.document_name}
                                    </div>
-                                   {documentExists(value.document_name)?"":(<div className='noDocumentAvailableCard'>
+                                   {(!token||documentExists(value.document_name))?"":(<div className='noDocumentAvailableCard'>
                                      <span>   Not Available</span>
                                    </div>)}
                                    </Paper>

@@ -24,6 +24,7 @@ const ForumNewsModal = (props) => {
     const [isSubscribed, setisSubscribed] = useState(false);
     const [Last_report, setLast_report] = useState("");
     const [isYearly, setisYearly] = useState(false);
+    const token = getUserToken();
 
     useEffect(() => {
         let searchstr = `CompanyName✂${c_data.Country}✂${c_data.SymbolTicker}✂${c_data.image}✂${c_data.Company_Name}✂${c_data.id}`;
@@ -52,6 +53,13 @@ const ForumNewsModal = (props) => {
         e.preventDefault();
         props.onHide();
         navigate("/company/"+Company_id);
+    }
+
+    const navigateToLogin = () => {
+        if(!token){
+            props.onHide();
+            navigate('/login');
+        }
     }
 
     const n_to_Company_news = (e) => {
@@ -123,7 +131,7 @@ const ForumNewsModal = (props) => {
             <Modal.Footer>
             <div className="row w-100">
             <div className="col-md-12 company_pop_r delisted_txt  mb-0">
-                   {(!isYearly)?(<button onClick={()=>dispatch(showsubscriptionmodal({value:true}))} className="upgradebtnonpopup">Upgrade Subscription</button>):""}
+                   {(!isYearly)?(<button onClick={()=>!token?navigateToLogin():dispatch(showsubscriptionmodal({value:true}))} className="upgradebtnonpopup">Upgrade Subscription</button>):""}
                 </div>
             </div>
             </Modal.Footer>
