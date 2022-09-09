@@ -36,6 +36,7 @@ function timeSince(date) {
                 return Math.floor(interval / 7) + "  weeks ago";
         }
     }
+    
     interval = seconds / 3600;
     if (interval > 1) {
         if (interval < 2)
