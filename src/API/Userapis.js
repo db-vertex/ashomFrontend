@@ -3,7 +3,7 @@ import { getUserToken } from './LocalStore';
 
 const token = ()=> getUserToken();
 
-const base_url = 'https://clone.ashom.app/';
+const base_url = 'https://ashom.app/';
 let source = axios.CancelToken.source();
 
 function timeSince(date) {
@@ -298,7 +298,7 @@ function getFinancialNews(page = 0, country = '', company_name = '') {
         var fetch_url = base_url + "api/webservice/financialapi/" + page + '/' + country;
     else if (country != '' && company_name != '')
         var fetch_url = base_url + "api/webservice/financialapi/" + page + '/' + country + '/' + company_name;
-
+    
     return new Promise(resolve => {
         axios({
                 method: "get",

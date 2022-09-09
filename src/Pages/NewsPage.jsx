@@ -25,6 +25,7 @@ const Newspage = () => {
     const shareBtnModalShow = useSelector((state)=>state.sharebtnmodal.modalShow);
     
     function changeCountry(country){
+        console.log(country);
         userEventAPI(`view_${country.toLowerCase()}_news`);
         setSearch('newssearchcountry', country);
         setSearch('newssearch', '');
@@ -44,6 +45,7 @@ const Newspage = () => {
             setNews([]);
             else
             if(searchext!==0){
+                console.log(meta.data);
                 setNews(meta.data);
             }
             else{
@@ -55,6 +57,7 @@ const Newspage = () => {
             sethasmorenews(false);
             setIsFetching(false);
             setcurrentNewsPosition(currentNewsPosition+1);
+            
             setisSearching(false);
         });
     }
@@ -92,7 +95,9 @@ const Newspage = () => {
              }
              else{
              getFinancialNews(currentNewsPosition).then(meta => {
+                console.log(meta.data);
                 setNews(meta.data);
+         
                 setcurrentNewsPosition(currentNewsPosition+1)
              
             });  
@@ -188,6 +193,7 @@ const Newspage = () => {
                             <Newsitem size={3} title={value.source}
                                 description={value.title}
                                 created={value.created}
+                               
                                 image={value.image_url}
                                 url_link={value.link}
                                 date={value.created_date}

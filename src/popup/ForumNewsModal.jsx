@@ -38,6 +38,7 @@ const ForumNewsModal = (props) => {
                 if(visited_data.max_companies==0){
                 setisYearly(true); 
                 }
+                console.log(visited_data.remaining_visits);
                 setRemaining_count((visited_data.remaining_visits)+' out of  '+(visited_data.max_companies));
                 setisSubscribed(true);
             }
@@ -106,7 +107,9 @@ const ForumNewsModal = (props) => {
         <Modal.Body className="pt-0">
         <div className="row  mb-3">
             <div className="col-md-12 delisted_txtc mb-0">
-            {(!isYearly)?((isSubscribed)?(<span className='delisted_txtc mb-0'>Remaining Count : {Remaining_count}</span>):(<><span style={{"color":"red"}}>Remaining Count : 0 of 0</span>  </>)):""}
+                
+            {(!isYearly)?((isSubscribed)?(<span className='delisted_txtc mb-0'>
+                Remaining Count : {Remaining_count}</span>):(<><span style={{"color":"red"}}>Remaining Count : 0 of 0</span>  </>)):""}
             {isSuspended?(<span className='float-end redx'>SUSPENDED</span>):""} 
             </div>  
             <div className="col-md-12 delisted_txtc mb-0">

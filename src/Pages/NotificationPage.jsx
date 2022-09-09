@@ -45,6 +45,7 @@ const Notificationpage = () => {
                             <div className="col-md-6 offset-md-3">
                                 {
                                     Notifications.map((notification, index) =>{
+                                        console.log(notification);
                                         let notify_type = notification.metadata.type;
                                         if(notify_type=='News'){
                                             return (<NewsNotification key={index} notification={notification} />);

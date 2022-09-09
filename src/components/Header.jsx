@@ -200,7 +200,7 @@ const Header = (props) => {
                                 aria-expanded={open ? 'true' : undefined} />
                       </div> : <><Button onClick={()=>navigate('/login', {state: {
                 redirect_url: window.location.pathname
-            }})}>Login</Button><Button onClick={()=>navigate('/singup')}>Sign Up</Button></> }
+            }})}>Login</Button><Button onClick={()=>navigate('/signup')}>Sign Up</Button></> }
                     </nav>
                   {IsUserLogin ? <Headermenu profileImg={profileImg} username={username} anchorEl={anchorEl} open={open} handleClose={handleClose} setIsUserLogin={setIsUserLogin}/> : <></>}
               </div>

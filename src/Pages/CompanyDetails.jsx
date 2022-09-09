@@ -43,6 +43,7 @@ const Companydetails = (props) => {
     const GoToDocumentView = (ref_url, doc_name) =>{
         const token = getUserToken();
         if(token){
+           
             if((Remains_visits!=0)||(hasSeenThisCompany)){
                 requestOpenCompanyApi(company_id, 1);
                 sethasSeenThisCompany(true);
@@ -176,16 +177,18 @@ const Companydetails = (props) => {
                         {document_name :"Balance Sheet", document_image:"/assets/icons/BalanceSheet.png", info:"A balance sheet provides detailed information about a company’s assets, liabilities and shareholders’ equity.Assets are things that a company owns that have value. This typically means they can either be sold or used by the company to make products or provide services that can be sold. Assets include physical property, such as plants, trucks, equipment and inventory. It also includes things that can’t be touched but nevertheless exist and have value, such as trademarks and patents. And cash itself is an asset. So are investments a company makes.Liabilities are amounts of money that a company owes to others. This can include all kinds of obligations, like money borrowed from a bank to launch a new product, rent for use of a building, money owed to suppliers for materials, payroll a company owes to its employees, environmental cleanup costs, or taxes owed to the government. Liabilities also include obligations to provide goods or services to customers in the future.Shareholders’ equity is sometimes called capital or net worth. It’s the money that would be left if a company sold all of its assets and paid off all of its liabilities. This leftover money belongs to the shareholders, or the owners, of the company."}, 
                         {document_name :"Equity Statement", document_image:"/assets/icons/EquityStatements.png", info: "The statement of changes in equity, sometimes called the “statement of changes in owners’ equity” or “statement of changes in shareholders’ equity,” primarily serves to report changes in the owners’ investment in the business over time. The basic components of owners’ equity are paid- in capital and retained earnings. Retained earnings include the cumulative amount of the company’s profits that have been retained in the company. In addition, non- controlling or minority interests and reserves that represent accumulated OCI items are included in equity. The latter items may be shown separately or included in retained earnings. Volkswagen includes reserves as components of retained earnings.The statement of changes in equity is organized to present, for each component of equity, the beginning balance, any increases during the period, any decreases during the period, and the ending balance. For paid- in capital, an example of an increase is a new issuance of equity and an example of a decrease is a repurchase of previously issued stock. For retained earnings, income (both net income as reported on the income statement and OCI) is the most common increase and a dividend payment is the most common decrease."}, 
                         {document_name :"Cash Flow Statement", document_image:"/assets/icons/CashFlow.png", info:"Cash flow statements report a company’s inflows and outflows of cash. This is important because a company needs to have enough cash on hand to pay its expenses and purchase assets. While an income statement can tell you whether a company made a profit, a cash flow statement can tell you whether the company generated cash.A cash flow statement shows changes over time rather than absolute dollar amounts at a point in time. It uses and reorders the information from a company’s balance sheet and income statement.The bottom line of the cash flow statement shows the net increase or decrease in cash for the period. Generally, cash flow statements are divided into three main parts. Each part reviews the cash flow from one of three types of activities: (1) operating activities; (2) investing activities; and (3) financing activities."}, 
-                        {document_name :"Comprehensive Income Statement", document_image:"/assets/icons/ComprehensiveIncome.png", info:"The statement of comprehensive income is one of the five financial statements required in a complete set of financial statements for distribution outside of a corporation.The statement of comprehensive income covers the same period of time as the income statement and consists of two major sections:Net income (or net earnings) from the company's income statement Other comprehensive income, which consists of positive and/or negative amounts for foreign currency translation and hedges, and a few other items. The totals from each of the above sections are summed and are presented as comprehensive income.(If a company does not have any item that meets the criteria of other comprehensive income, the statement of comprehensive income is not required.)For a company with an item that is considered to be other comprehensive income, the statement of comprehensive income is usually a separate financial statement that is presented immediately following the income statement. (However, a company has the option to combine the income statement and the statement of comprehensive income into one continuous financial statement.)The amount of net income will cause an increase in the stockholders' equity account Retained Earnings, while a loss will cause a decrease.The amount of other comprehensive income will cause an increase in the stockholders' equity account Accumulated Other Comprehensive Income (while a negative amount will cause a decrease in Accumulated Other Comprehensive Income)."}, 
+                        {document_name :"Comprehensive Statement", document_image:"/assets/icons/ComprehensiveIncome.png", info:"The statement of comprehensive income is one of the five financial statements required in a complete set of financial statements for distribution outside of a corporation.The statement of comprehensive income covers the same period of time as the income statement and consists of two major sections:Net income (or net earnings) from the company's income statement Other comprehensive income, which consists of positive and/or negative amounts for foreign currency translation and hedges, and a few other items. The totals from each of the above sections are summed and are presented as comprehensive income.(If a company does not have any item that meets the criteria of other comprehensive income, the statement of comprehensive income is not required.)For a company with an item that is considered to be other comprehensive income, the statement of comprehensive income is usually a separate financial statement that is presented immediately following the income statement. (However, a company has the option to combine the income statement and the statement of comprehensive income into one continuous financial statement.)The amount of net income will cause an increase in the stockholders' equity account Retained Earnings, while a loss will cause a decrease.The amount of other comprehensive income will cause an increase in the stockholders' equity account Accumulated Other Comprehensive Income (while a negative amount will cause a decrease in Accumulated Other Comprehensive Income)."}, 
                         {document_name :"Notes", document_image:"/assets/icons/Notes.png", info:"Also referred to as footnotes. These provide additional information pertaining to a company's operations and financial position and are considered to be an integral part of the financial statements. The notes are required by the full disclosure principle."}, 
                         {document_name :"Financial Report", document_image:"/assets/icons/FinancialReport.png", info:"An annual report is a financial summary of a company’s activities during the year along with management’s analysis of the company’s current financial position and future plans. Annual reports are prepared at the end of the fiscal year for external users to gain financial information about the inner workings of the company and what management plans to do in the future."}, 
                         {document_name :"Annual Report", document_image:"/assets/icons/AnnualReports.png", info:"Download the Audited Financial Statements"}]
 
     function documentExists(documentName) {
+        
         let isExist = Companydocuments.filter((e)=>{
             if((e.document_name=="Comprehensive Income Statement")&&(documentName=="Comprehensive Statement"))
             return true;
             if(e.document_name==(documentName)){
+                
                 return true;
             }
         }) 
@@ -205,13 +208,18 @@ const Companydetails = (props) => {
     }
 
     function getdocumentLink(documentName){
+        console.log(documentName);
         var data =  Companydocuments.filter((e)=>{
+             
             if(e.document_name==(documentName)){
+                console.log(e);
                 return e;
             }
             }) 
-        if(data.length > 0)    
+        if(data.length > 0)  
+        
         return data[0].document_link; 
+
         else
         return data.document_link;    
     }  
@@ -367,17 +375,17 @@ const Companydetails = (props) => {
                             return (
                                 <Grid item xs={6} md={3} key={index}>
                                  <CardActionArea > 
-                                 <Paper className='document_type_card p-1' onClick={()=>(!token?navigate('/login', {state: {
-                redirect_url: window.location.pathname
-            }}):documentExists(value.document_name)?GoToDocumentView(getdocumentLink(value.document_name), value.document_name):false)}>
+                                 <Paper className='document_type_card p-1' onClick={()=>(!token?navigate('/login',{state:{
+          redirect_url: window.location.pathname
+      }}):documentExists(value.document_name)?GoToDocumentView(getdocumentLink(value.document_name), value.document_name):false)}>
                                   <div className='documentTypeCa4rdImage'>
                                     <img  src={value.document_image} alt="Cash Flow" srcSet={value.document_image} />
                                    </div>   
-                                   <div  className='document_type_card_title'>
+                                   <div className='document_type_card_title'>
                                       {value.document_name}
                                    </div>
                                    {(!token||documentExists(value.document_name))?"":(<div className='noDocumentAvailableCard'>
-                                     <span>   Not Available</span>
+                                     <span> Not Available</span>
                                    </div>)}
                                    </Paper>
                                    <div className='companyDetailButtonBox'>

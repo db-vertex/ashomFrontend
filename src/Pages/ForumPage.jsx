@@ -89,6 +89,7 @@ const Forumpage = () => {
     const handlerefreshfourms = () =>{
         getForums().then((data)=>{
             setForums(data);
+            console.log(data);
             setForumAvailable(data);
         })    
     }
