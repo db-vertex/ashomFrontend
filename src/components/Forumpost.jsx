@@ -128,7 +128,7 @@ const Forumpost = (props) => {
                 <div className={(forumalldata.isMine)?"col-10":"col-md-12"}>
                 <Typography variant='h6' style={{"height": "13px", "fontSize":"15px"}}>{username}</Typography>
                 <Typography style={{"color":"grey", "fontSize":"11px"}} variant='span'>{time}</Typography><br/>
-                <Typography className='forum_post_content' style={{"fontSize":"13px", "display": "-webkit-box", "WebkitLineClamp": "2", "WebkitBoxOrient": "vertical", "textOverflow": "ellipsis", "overflow": "hidden", "whiteSpace": "pre"}} variant='span'>{content_txt.replace(/\n\n+/g, '\n')}</Typography>
+                <Typography className='forum_post_content' style={{"fontSize":"13px",  "WebkitLineClamp": "2", "WebkitBoxOrient": "vertical", "textOverflow": "ellipsis", "overflow": "hidden", "whiteSpace": "pre"}} variant='span'>{content_txt.replace(/\n\n+/g, '\n')}</Typography>
                 <Typography className='forumpost_link' variant='span'><a target="_black"  style={{"color":"rgb(80 185 242)"}} href={url_link}>{url_link}</a></Typography>
                 </div>
                 {(forumalldata.isMine)?(<div className="col-2 edit_delete_forum_btn_bx">

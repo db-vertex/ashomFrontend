@@ -56,13 +56,16 @@ const Newsitem = (props) => {
                 className='news_media_image'
                 component="img"
                 height="154"
+                
                 onError={e => { e.target.src = "/assets/icons/placeholder.png"; }}
+                
                 image={image}
+                
                 alt={title}>
             </CardMedia>   
             <CardContent className='newscarddescbox' >
             <div className="row">  
-             <div className="col-md-5 order-md-2 ">
+             <div className="col-md-5 order-md-2">
                <Typography className="newstimingtext" style={{ "fontWeight": "200", "fontSize": "10px", "textAlign": "right" }}>
                   {timeSince(new Date(date))}
                </Typography>

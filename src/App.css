@@ -296,7 +296,7 @@ button:focus {
     content: "";
     height: 50px;
     width: 115px;
-    background: url("http://localhost:3000/assets/icons/Dropdown.svg") no-repeat -30px -50px fixed;
+    background: url("https://ashom.app/assets/icons/Dropdown.svg") no-repeat -30px -50px fixed;
 }
 
 .menuheader,
@@ -1890,6 +1890,7 @@ div[data-testid="otp-input-root"] input:focus {
 
 .news_media_image {
     object-fit: cover !important;
+    width:100px;
 }
 
 .forumpostbtn_row {

@@ -3,7 +3,7 @@ import { getUserToken } from './LocalStore';
 
 const token = ()=> getUserToken();
 
-const base_url = 'https://ashom.app/';
+const base_url = 'http://localhost:8000/';
 let source = axios.CancelToken.source();
 
 function timeSince(date) {

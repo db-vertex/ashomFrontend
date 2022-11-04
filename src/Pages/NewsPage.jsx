@@ -195,6 +195,7 @@ const Newspage = () => {
                                 created={value.created}
                                
                                 image={value.image_url}
+                                
                                 url_link={value.link}
                                 date={value.created_date}
                                 key={index} />)

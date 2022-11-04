@@ -11,10 +11,10 @@ const firebaseConfig = {
     storageBucket: "ashom-277f0.appspot.com",
     messagingSenderId: "902457448135",
     appId: "1:902457448135:web:de472b98107026f176d0e2",
-    measurementId: "G-37YDP0PFP9"
+    measurementId: "G-L8QX48EF97"
 };
 
-const base_url = "https://clone.ashom.app/";
+const base_url = "https://ashom.app/";
 
 self.addEventListener('notificationclick', function(event) {
     let url = base_url;
