@@ -28,6 +28,7 @@ const Newspage = () => {
     var parseCountry = useSelector((state)=>state.companiesbycountryreducer.value);
 
     function changeCountry(country){
+      console.log(country);
         setcurrentNewsPosition(0)
         setselectedCountry(country);
         setSearchText("");

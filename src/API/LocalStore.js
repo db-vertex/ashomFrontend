@@ -45,10 +45,21 @@ function getCookie(cname) {
 
 const getFlag = (country) => {
     if (country === "KSA")
-        country = "Saudi%20Arabia";
+        country = "sa";
     else if (country === "UAE")
-        country = "United%20Arab%20Emirates";
-    return "https://countryflagsapi.com/png/" + country;
+        country = "ae";
+     else if (country === "Kuwait")
+        country = "kw";
+    else if (country === "Bahrain")
+        country = "bh";
+    else if (country === "Qatar")
+      country = "qa";
+      else if (country === "Oman")
+      country = "om";
+      
+      return   'https://countryflagsapi.com/png/'+country +'';
+  //  return   'https://flagcdn.com/16x12/'+country +'.png';
+     
 }
 
 

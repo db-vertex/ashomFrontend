@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getUserToken } from './LocalStore';
 
-const token = ()=> getUserToken();
+ const token = ()=> getUserToken();
 
 const base_url = 'http://localhost:8000/';
 let source = axios.CancelToken.source();
